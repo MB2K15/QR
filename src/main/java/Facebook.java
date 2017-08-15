@@ -22,7 +22,6 @@ public class Facebook implements FacebookService {
     private City city;
     private List <Post> posts;
 
-
     public List<Post> getPosts() {
         return posts;
     }
@@ -125,6 +124,26 @@ public class Facebook implements FacebookService {
 
     public void setCity(City city) {
         this.city = city;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Facebook{" +
+                "id=" + id +
+                ", birthday='" + birthday + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", school='" + school + '\'' +
+                ", location='" + location + '\'' +
+                ", relationship='" + relationship + '\'' +
+                ", work='" + work + '\'' +
+                ", occupation='" + occupation + '\'' +
+                ", gender='" + gender + '\'' +
+                ", friends=" + friends +
+                ", city=" + city +
+                ", posts=" + posts +
+                '}';
     }
 
     @Override

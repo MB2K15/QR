@@ -20,4 +20,13 @@ public class Coords {
     public void setLat(int lat) {
         this.lat = lat;
     }
+
+
+    @Override
+    public String toString() {
+        return "Coords{" +
+                "lon=" + lon +
+                ", lat=" + lat +
+                '}';
+    }
 }

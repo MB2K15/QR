@@ -38,4 +38,14 @@ public class City {
     public void setStateName(String stateName) {
         this.stateName = stateName;
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "countryName='" + countryName + '\'' +
+                ", cityName='" + cityName + '\'' +
+                ", stateName='" + stateName + '\'' +
+                ", coords=" + coords +
+                '}';
+    }
 }
