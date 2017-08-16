@@ -6,9 +6,9 @@ import java.util.stream.Collectors;
 /**
  * Created by Matt on 2017-08-15.
  */
-public class Facebook implements FacebookService {
+public class Facebook {
 
-    private int id;
+    private String id;
     private String birthday;
     private String firstname;
     private String lastname;
@@ -30,11 +30,11 @@ public class Facebook implements FacebookService {
         this.posts = posts;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -146,11 +146,4 @@ public class Facebook implements FacebookService {
                 '}';
     }
 
-    @Override
-    public Map<String, Long> findMostCommonWords() {
-        Map<String, Long> mapa = new HashMap<>();
-
-        return mapa;
-
-    }
 }

@@ -1,7 +1,6 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.zxing.WriterException;
-import org.apache.commons.lang.ArrayUtils;
-import org.json.simple.parser.JSONParser;
+import org.springframework.data.crossstore.ChangeSetPersister;
 
 import java.io.*;
 import java.util.*;
@@ -12,20 +11,32 @@ import java.util.stream.Collectors;
  */
 public class TestDisplayQR {
 
-    public static void main(String[] args) throws WriterException, IOException, org.json.simple.parser.ParseException {
+    public static void main(String[] args) throws Exception {
 
 
         ObjectMapper mapper = new ObjectMapper();
+        //poprawić ścieżki dostepu
+        List<Facebook>listOfFbObjects = new ArrayList<>();
+        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f1.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f2.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f3.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f4.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f5.json"), Facebook.class));
 
-        /**
-         * Read object from file
-         */
-        Facebook value = null;
+        FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
+        //System.out.println(facebookSerice.findAll());
+        //System.out.println(facebookSerice.findById("2"));
+        //System.out.println(facebookSerice.findPostIdsByKeyword("absolutely"));
+        //System.out.println(facebookSerice.findMostCommonWords());
+
+   /*
         try {
-            value = mapper.readValue(new File("C:\\\\Users\\\\Matt\\\\Desktop\\\\JSF\\\\QR\\\\src\\\\main\\\\resources\\\\f5.json"), Facebook.class);
+            value = mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f1.json"), Facebook.class);
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
+      /*  System.out.println(value);
 
         String [] arrayTest=value.getPosts().get(1).getMessage().split(" ");
         String [] arrayTest2=value.getPosts().get(0).getMessage().split(" ");
@@ -34,7 +45,7 @@ public class TestDisplayQR {
         String [] resultFinals = (String[]) ArrayUtils.addAll(resultFinal,result);
 
         List <String> listaString = Arrays.asList(resultFinals);
-        System.out.println(findMostCommonWords(listaString));
+        System.out.println(findMostCommonWords(listaString));*/
 
 }
 

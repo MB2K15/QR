@@ -1,20 +1,16 @@
-import com.google.zxing.NotFoundException;
-import org.springframework.data.repository.CrudRepository;
 
+import javax.ws.rs.NotFoundException;
 import java.util.Map;
 import java.util.Set;
 
 /**
  * Created by Matt on 2017-08-15.
  */
-public interface FacebookService extends CrudRepository<Facebook, Integer> {
+public interface FacebookService {
 
-    /*Facebook findById(String id) throws NotFoundException;*/
-
+    Facebook findById(String id) throws NotFoundException;
     Map<String, Long> findMostCommonWords();
-
-   /* Set<String> findPostIdsByKeyword(String word);
-
-    Set<Facebook> findAll();*/
+    Set<String> findPostIdsByKeyword(String word);
+    Set<Facebook> findAll();
 
 }
