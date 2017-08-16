@@ -26,7 +26,7 @@ public class TestDisplayQR {
         FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
         //System.out.println(facebookSerice.findAll());
         //System.out.println(facebookSerice.findById("2"));
-        //System.out.println(facebookSerice.findPostIdsByKeyword("absolutely"));
+        System.out.println(facebookSerice.findPostIdsByKeyword("absolutely"));
         //System.out.println(facebookSerice.findMostCommonWords());
 
    /*

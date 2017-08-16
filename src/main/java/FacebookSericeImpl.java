@@ -49,7 +49,7 @@ public class FacebookSericeImpl implements FacebookService {
                 .map(s1->s1.split(" "))
                 .flatMap(Arrays::stream)
                 .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-        return mapa;
+        return mapa;//usuwanie znaków
     }
 
     @Override
