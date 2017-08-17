@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 /**
  * Created by Matt on 2017-08-05.
  */
-public class TestDisplayQR {
+public class FacebookMain {
 
     public static void main(String[] args) throws Exception {
 
@@ -21,16 +21,12 @@ public class TestDisplayQR {
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f4.json"), Facebook.class));
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f5.json"), Facebook.class));
 
-        FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
-        //facebookSerice.findAll();
-        //System.out.println(facebookSerice.findById("77"));
-        List<Facebook>listatest = new ArrayList<>();
-        Set<Facebook>set = facebookSerice.findAll();
+        FacebookSericeImpl facebookService = new FacebookSericeImpl(listOfFbObjects);
+        //System.out.println(facebookService.findAll());
+        //System.out.println(facebookService.findById("2"));
+        //System.out.println(facebookService.findMostCommonWords());
+        //System.out.println(facebookService.findPostIdsByKeyword("absolutely"));
 
-        for(Facebook fb:set){
-            System.out.println(fb.getFirstname());
-            System.out.println(fb.getLastname());
-        }
 
     }
 }
