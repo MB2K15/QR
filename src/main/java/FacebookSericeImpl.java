@@ -1,4 +1,4 @@
-import javax.ws.rs.NotFoundException;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -20,7 +20,7 @@ public class FacebookSericeImpl implements FacebookService {
                 .findFirst()
                 .orElse(null);
         if(facebook==null)
-            throw new NotFoundException();
+            throw new NotFoundException("Id not found");
         return facebook;
     }
 
@@ -54,7 +54,6 @@ public class FacebookSericeImpl implements FacebookService {
     @Override
     public Set<Facebook> findAll() {
         return (this.listOfFacebbokAcounts).stream()
-                .sorted(Comparator.comparing(Facebook::getFirstname).thenComparing(Facebook::getLastname))
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(()->new TreeSet<>(Comparator.comparing(Facebook::getFirstname).thenComparing(Facebook::getLastname))));
     }
 }

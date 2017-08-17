@@ -11,10 +11,9 @@ public class TestDisplayQR {
 
     public static void main(String[] args) throws Exception {
 
-
         ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         ObjectMapper mapper = new ObjectMapper();
-        //poprawić ścieżki dostepu
+
         List<Facebook>listOfFbObjects = new ArrayList<>();
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f1.json"), Facebook.class));
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f2.json"), Facebook.class));
@@ -23,35 +22,16 @@ public class TestDisplayQR {
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f5.json"), Facebook.class));
 
         FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
-        facebookSerice.findAll();
-        facebookSerice.findById("3");
-        System.out.println(facebookSerice.findPostIdsByKeyword("have"));
+        //facebookSerice.findAll();
+        //System.out.println(facebookSerice.findById("77"));
+        List<Facebook>listatest = new ArrayList<>();
+        Set<Facebook>set = facebookSerice.findAll();
 
-   /*
-        try {
-            value = mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f1.json"), Facebook.class);
-        } catch (Exception e) {
-            e.printStackTrace();
+        for(Facebook fb:set){
+            System.out.println(fb.getFirstname());
+            System.out.println(fb.getLastname());
         }
-*/
-      /*  System.out.println(value);
 
-        String [] arrayTest=value.getPosts().get(1).getMessage().split(" ");
-        String [] arrayTest2=value.getPosts().get(0).getMessage().split(" ");
-        String [] result = (String[]) ArrayUtils.addAll(arrayTest, arrayTest2);
-        String [] resultFinal = value.getPosts().get(2).getMessage().split(" ");
-        String [] resultFinals = (String[]) ArrayUtils.addAll(resultFinal,result);
-
-        List <String> listaString = Arrays.asList(resultFinals);
-        System.out.println(findMostCommonWords(listaString));*/
-
-}
-
-    public static Map<String, Long> findMostCommonWords(List <String> list){
-        Map <String, Long> mapa = new HashMap<>();
-        mapa = list.stream()
-        .collect(Collectors.groupingBy(c -> c, Collectors.counting()));
-        return mapa;
     }
 }
 
