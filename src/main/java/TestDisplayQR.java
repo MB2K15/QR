@@ -1,6 +1,4 @@
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.google.zxing.WriterException;
-import org.springframework.data.crossstore.ChangeSetPersister;
 
 import java.io.*;
 import java.util.*;
@@ -24,10 +22,10 @@ public class TestDisplayQR {
         listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f5.json"), Facebook.class));
 
         FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
-        //System.out.println(facebookSerice.findAll());
-        //System.out.println(facebookSerice.findById("2"));
-        System.out.println(facebookSerice.findPostIdsByKeyword("absolutely"));
-        //System.out.println(facebookSerice.findMostCommonWords());
+        facebookSerice.findAll();
+        facebookSerice.findById("3");
+        facebookSerice.findPostIdsByKeyword("absolutely");
+        facebookSerice.findMostCommonWords();
 
    /*
         try {
