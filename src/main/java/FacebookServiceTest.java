@@ -1,3 +1,9 @@
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.junit.Before;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 /**

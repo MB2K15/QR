@@ -12,20 +12,20 @@ public class TestDisplayQR {
     public static void main(String[] args) throws Exception {
 
 
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
         ObjectMapper mapper = new ObjectMapper();
         //poprawić ścieżki dostepu
         List<Facebook>listOfFbObjects = new ArrayList<>();
-        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f1.json"), Facebook.class));
-        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f2.json"), Facebook.class));
-        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f3.json"), Facebook.class));
-        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f4.json"), Facebook.class));
-        listOfFbObjects.add(mapper.readValue(new File("/home/mateusz/IdeaProjects/QR/src/main/resources/f5.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(classloader.getResource("f1.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(classloader.getResource("f2.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(classloader.getResource("f3.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(classloader.getResource("f4.json"), Facebook.class));
+        listOfFbObjects.add(mapper.readValue(classloader.getResource("f5.json"), Facebook.class));
 
         FacebookSericeImpl facebookSerice = new FacebookSericeImpl(listOfFbObjects);
         facebookSerice.findAll();
         facebookSerice.findById("3");
-        facebookSerice.findPostIdsByKeyword("absolutely");
-        facebookSerice.findMostCommonWords();
+        System.out.println(facebookSerice.findPostIdsByKeyword("have"));
 
    /*
         try {

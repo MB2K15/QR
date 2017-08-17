@@ -1,3 +1,4 @@
+import javax.ws.rs.NotFoundException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -13,11 +14,13 @@ public class FacebookSericeImpl implements FacebookService {
     }
 
     @Override
-    public Facebook findById(String id) {
+    public Facebook findById(String id) throws NotFoundException{
         Facebook facebook = listOfFacebbokAcounts.stream()
                 .filter(f->id.equals(f.getId()))
                 .findFirst()
                 .orElse(null);
+        if(facebook==null)
+            throw new NotFoundException();
         return facebook;
     }
 
