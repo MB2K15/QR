@@ -22,10 +22,10 @@ public class FacebookMain {
         listOfFbObjects.add(mapper.readValue(classloader.getResource("f5.json"), Facebook.class));
 
         FacebookSericeImpl facebookService = new FacebookSericeImpl(listOfFbObjects);
-        //System.out.println(facebookService.findAll());
-        //System.out.println(facebookService.findById("2"));
-        //System.out.println(facebookService.findMostCommonWords());
-        //System.out.println(facebookService.findPostIdsByKeyword("absolutely"));
+        System.out.println(facebookService.findAll());
+        
+        System.out.println(facebookService.findMostCommonWords());
+        
 
 
     }
